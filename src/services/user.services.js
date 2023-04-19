@@ -14,7 +14,7 @@ const insert = async ({ displayName, email, password, image }) => {
     return { status: 201, message: { token: tokenGen } };
 };
 
-const findAll = async () => User.findAll();
+const findAll = async () => User.findAll({ attributes: { exclude: ['password'] } });
 
 module.exports = {
     findAll,
