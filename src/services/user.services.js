@@ -16,7 +16,16 @@ const insert = async ({ displayName, email, password, image }) => {
 
 const findAll = async () => User.findAll({ attributes: { exclude: ['password'] } });
 
+const findById = async (id) => {
+    const oneUser = await User.findOne({ where: { id }, attributes: { exclude: ['password'] } });
+    if (!oneUser) {
+        return { status: 404, message: { message: 'User does not exist' } };
+    }
+    return { status: 200, message: oneUser };
+};
+
 module.exports = {
     findAll,
     insert,
+    findById,
 };

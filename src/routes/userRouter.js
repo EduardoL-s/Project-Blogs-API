@@ -5,7 +5,8 @@ const { bodyUserValidations, authToken } = require('../middlewares');
 const userRouter = Router();
 
 userRouter.post('/', bodyUserValidations, userControllers.insertUser);
-
-userRouter.get('/', authToken, userControllers.findAll);
+userRouter.use(authToken);
+userRouter.get('/', userControllers.findAll);
+userRouter.get('/:id', userControllers.findById);
 
 module.exports = userRouter;

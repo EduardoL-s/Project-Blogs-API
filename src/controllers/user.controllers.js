@@ -11,4 +11,14 @@ const insertUser = async (req, res) => {
     return res.status(result.status).json(result.message);
 };
 
-module.exports = { findAll, insertUser };
+const findById = async (req, res) => {
+    const { id } = req.params;
+    const result = await userService.findById(+id);
+    return res.status(result.status).json(result.message);
+};
+
+module.exports = {
+    findAll,
+    insertUser,
+    findById,
+};
