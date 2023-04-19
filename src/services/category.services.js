@@ -5,6 +5,6 @@ const insertCategory = async (name) => {
     return { status: 201, message: newCategory };
 };
 
-const findAll = async () => Category.findAll();
+const findAll = async () => Category.findAll({ order: [['id', 'ASC']] });
 
 module.exports = { insertCategory, findAll };
