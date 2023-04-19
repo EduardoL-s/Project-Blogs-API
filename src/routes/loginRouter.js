@@ -1,9 +1,9 @@
 const { Router } = require('express');
 const { loginControllers } = require('../controllers');
-const { bodyVerifications } = require('../middlewares');
+const { bodyLoginVerifications } = require('../middlewares');
 
 const loginRouter = Router();
 
-loginRouter.post('/', bodyVerifications, loginControllers.signin);
+loginRouter.post('/', bodyLoginVerifications, loginControllers.signin);
 
 module.exports = loginRouter;

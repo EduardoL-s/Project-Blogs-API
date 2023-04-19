@@ -5,4 +5,10 @@ const findAll = async (req, res) => {
     return res.status(200).json(result);
 };
 
-module.exports = { findAll };
+const insertUser = async (req, res) => {
+    const { body } = req;
+    const result = await userService.insert(body);
+    return res.status(result.status).json(result.message);
+};
+
+module.exports = { findAll, insertUser };

@@ -1,3 +1,4 @@
-const { bodyVerifications } = require('./loginValidations');
+const { bodyLoginVerifications } = require('./login.middlewares');
+const { bodyUserValidations } = require('./user.middlewares');
 
-module.exports = { bodyVerifications };
+module.exports = { bodyLoginVerifications, bodyUserValidations };
